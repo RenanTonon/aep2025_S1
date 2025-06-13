@@ -1,6 +1,7 @@
+import NavigateButton from "../../components/buttons/NavigateButton";
 import "./Login.css";
 
-export default function Login() {
+export const Login = () => {
   return (
     <div className="login-container">
       <div className="login-left">
@@ -16,9 +17,9 @@ export default function Login() {
             <a href="#" className="forgot-password">ESQUECEU SENHA?</a>
           </div>
 
-          <div className="login-buttons">
-            <button type="submit" className="btn">ENTRAR</button>
-            <button type="button" className="btn">CADASTRAR</button>
+          <div className="flex justify-center gap-[10px]">
+            <NavigateButton path="/home" conteudo="ENTRAR"/>
+            <NavigateButton path="/home" conteudo="CADASTRAR"/>
           </div>
         </form>
       </div>

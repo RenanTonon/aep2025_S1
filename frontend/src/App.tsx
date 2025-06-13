@@ -1,11 +1,11 @@
-import { Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
 import { HomePage } from './routes/Home/HomePage'
-import Login from './components/PageLoyout/components/Login'
+import {Login} from './routes/Login/Login'
 
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Login />} />
+      <Route path='/login' element={<Login />} />
       <Route path="/home" element={<HomePage />} />,
     </Routes>
   )
