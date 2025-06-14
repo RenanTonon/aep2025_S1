@@ -17,7 +17,7 @@ interface Props {
 
 export const PostMansager = (props:Props) => {
     return (
-        <div className="flex flex-col w-[600px] border-solid border-black gap-[10px] font-poppins">
+        <div className="flex flex-col w-[600px] border-solid border-black gap-[10px] font-poppins justify-center">
             <div className="flex flex-row items-center gap-[10px]">
                 <img src={props.fotoUsuario} alt="foto usuário" className="w-[30px] rounded-[180px]"/>
                 <p className="font-bold">{props.nomeUsuario}</p>

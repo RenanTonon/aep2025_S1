@@ -1,18 +1,47 @@
 import { HeaderMenu } from "../../components/PageLoyout/components/HeaderMenu";
-import { PageLayout } from "../../components/PageLoyout/PageLayout";
 import { PostMansager } from "./components/PostMansager";
-import FotoPerfil from "../../assets/imagens/fotoPefilTeste.jpg"
-import BananaFoto from "../../assets/imagens/banana teste.jpg"
+import NavigateButton from "../../components/buttons/NavigateButton";
+import { ApiPosts } from "../../apis/ApiPosts";
+import { useEffect, useState } from "react";
+import type { PostType } from "../../types/PostType";
+
 export const HomePage = () => {
-    return (
-        <> 
-            <HeaderMenu></HeaderMenu>
-            <div className="flex justify-center mt-[50px]">
-                <PostMansager fotoUsuario={FotoPerfil} nomeUsuario="Willian Kakihata" tituloPostagem="Banana no Mercado teve um desconto alto..." localizacaoPostagem="Avenida bananas 1750" fotoPostagem={BananaFoto} contadorVotoPositivo={1000} contadorVotoNegativo={1} contadorComentarios={10000}/>
-            </div>
-        </>
-        
-            
-        
-    );
-}
+  const [apiPostagens, setApiPostagens] = useState<PostType[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const posts = await ApiPosts();
+        setApiPostagens(posts);
+      } catch (error) {
+        console.error("Erro ao carregar postagens:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      <HeaderMenu />
+      <div className="flex flex-col justify-center items-center mt-[50px] gap-[50px]">
+        {apiPostagens.map((post, index) => (
+          <PostMansager
+            key={index}
+            fotoUsuario={post.fotoUsuario}
+            nomeUsuario={post.nomeUsuario}
+            tituloPostagem={post.tituloPostagem}
+            localizacaoPostagem={post.localizacaoPostagem}
+            fotoPostagem={post.fotoPostagem}
+            contadorVotoPositivo={post.contadorVotoPositivo}
+            contadorVotoNegativo={post.contadorVotoNegativo}
+            contadorComentarios={post.contadorComentarios}
+          />
+        ))}
+      </div>
+      <div className="fixed bottom-6 right-6 z-50">
+        <NavigateButton conteudo="POSTAR" path="/login" />
+      </div>
+    </>
+  );
+};
