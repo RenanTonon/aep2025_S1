@@ -5,6 +5,7 @@ import CompartilharIcon from "../../../assets/icons/compartilhar.png"
 
 
 interface Props {
+    idPostagem: string
     fotoUsuario : string
     nomeUsuario : string
     tituloPostagem : string

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 interface Props {
   conteudo: string;
   path: string;
-  className?: string; // opcional
+  className?: string; 
 }
 
 const NavigateButton = ({ conteudo, path, className }: Props) => {
