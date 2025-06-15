@@ -199,7 +199,7 @@ export const SignupPage = () => {
                     <div className="flex justify-center mt-6">
                         <button
                             type="submit"
-                            className="bg-gradient-to-b from-[#3a2e8c] to-[#1a1440] text-white rounded-lg py-3 px-10 font-bold cursor-pointer shadow-[2px_4px_0_#1a1440] transition-colors duration-200 hover:from-[#2d2174]"
+                            className="bg-gradient-to-b from-[#3a2e8c] to-[#1a1440] text-white rounded-lg py-3 px-10 font-bold cursor-pointer transition-colors duration-200 hover:from-[#2d2174]"
                         >
                             Cadastrar
                         </button>

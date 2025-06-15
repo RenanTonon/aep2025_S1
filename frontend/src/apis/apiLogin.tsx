@@ -26,9 +26,9 @@ export const ApiLogin = async (data: LoginType): Promise<LoginResponse> => {
       message: "Login realizado com sucesso!",
       token: access_token,
       user: {
-        email: data.email, 
-        name: "Nome do Usuário", 
-        username: "username",    
+        email: data.email,
+        name: "UsuarioV2", 
+        username: "usernameAleatorio",   
       },
     };
   } catch (error: any) {

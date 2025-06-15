@@ -10,14 +10,8 @@ export const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Usar onSubmit do form
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!login || !senha) {
-      alert("Por favor, preencha login e senha");
-      return;
-    }
 
     setLoading(true);
 
@@ -29,7 +23,7 @@ export const Login = () => {
       if (response.success && response.token) {
         localStorage.setItem("token", response.token);
         alert("Login realizado com sucesso!");
-        navigate("/home"); // redireciona para /home
+        navigate("/home"); 
       } else {
         alert(response.message || "Erro no login");
       }
