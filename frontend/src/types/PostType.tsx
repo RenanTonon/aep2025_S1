@@ -1,7 +1,7 @@
 import type { CommentType } from "./CommentType"
 
 export interface PostType {
-    index: string
+    idPostagem: string;
     fotoUsuario : string
     nomeUsuario : string
     tituloPostagem : string
