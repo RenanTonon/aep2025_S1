@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import type { SignupType } from "../../types/SignupType";
 import { ApiSignup } from "../../apis/apiSignUpAndLogin";
+import { useNavigate } from "react-router";
 
 export const SignupPage = () => {
-    const [firstName, setFirstName] = useState("");
+    const [firstname, setFirstName] = useState("");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-
-    const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
     const navigate = useNavigate();
+    const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
     const nameRegex = /^[A-Za-z]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -22,11 +20,11 @@ export const SignupPage = () => {
     const validateFields = (): boolean => {
         const newErrors: { [key: string]: string } = {};
 
-        if (!firstName) newErrors.firstName = "Primeiro nome é obrigatório";
-        else if (!nameRegex.test(firstName))
+        if (!firstname) newErrors.firstname = "Primeiro nome é obrigatório";
+        else if (!nameRegex.test(firstname))
             newErrors.firstName =
                 "Primeiro nome deve conter apenas letras (sem números ou símbolos)";
-        else if (firstName.length < 2)
+        else if (firstname.length < 2)
             newErrors.firstName = "Primeiro nome deve ter ao menos 2 caracteres";
 
         if (!username) newErrors.username = "Username é obrigatório";
@@ -59,7 +57,7 @@ export const SignupPage = () => {
         if (!validateFields()) return;
 
         const signupData: SignupType = {
-            firstName,
+            firstname,
             username,
             email,
             password,
@@ -71,12 +69,11 @@ export const SignupPage = () => {
                 if (response.token) {
                     localStorage.setItem("token", response.token);
                 }
-                alert(response.message);
+                navigate('/home');
             } else {
-                alert("Falha ao cadastrar: " + response.message);
+                console.log("Falha ao cadastrar: " + response.message);
             }
         } catch (error) {
-            alert("Erro inesperado ao cadastrar");
             console.error(error);
         }
     };
@@ -98,11 +95,11 @@ export const SignupPage = () => {
                             id="firstName"
                             name="firstName"
                             placeholder="Seu primeiro nome"
-                            value={firstName}
+                            value={firstname}
                             onChange={(e) => setFirstName(e.target.value)}
                             className={`w-[300px] border-2 rounded-lg px-3 py-2.5 outline-none ${errors.firstName
-                                    ? "border-red-500 focus:ring-2 focus:ring-red-500"
-                                    : "border-[#2d2174] focus:ring-2 focus:ring-[#2d2174]"
+                                ? "border-red-500 focus:ring-2 focus:ring-red-500"
+                                : "border-[#2d2174] focus:ring-2 focus:ring-[#2d2174]"
                                 }`}
                             required
                         />
@@ -123,8 +120,8 @@ export const SignupPage = () => {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             className={`w-[300px] border-2 rounded-lg px-3 py-2.5 outline-none ${errors.username
-                                    ? "border-red-500 focus:ring-2 focus:ring-red-500"
-                                    : "border-[#2d2174] focus:ring-2 focus:ring-[#2d2174]"
+                                ? "border-red-500 focus:ring-2 focus:ring-red-500"
+                                : "border-[#2d2174] focus:ring-2 focus:ring-[#2d2174]"
                                 }`}
                             required
                         />
@@ -145,8 +142,8 @@ export const SignupPage = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className={`w-[300px] border-2 rounded-lg px-3 py-2.5 outline-none ${errors.email
-                                    ? "border-red-500 focus:ring-2 focus:ring-red-500"
-                                    : "border-[#2d2174] focus:ring-2 focus:ring-[#2d2174]"
+                                ? "border-red-500 focus:ring-2 focus:ring-red-500"
+                                : "border-[#2d2174] focus:ring-2 focus:ring-[#2d2174]"
                                 }`}
                             required
                         />
@@ -167,8 +164,8 @@ export const SignupPage = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className={`w-[300px] border-2 rounded-lg px-3 py-2.5 outline-none ${errors.password
-                                    ? "border-red-500 focus:ring-2 focus:ring-red-500"
-                                    : "border-[#2d2174] focus:ring-2 focus:ring-[#2d2174]"
+                                ? "border-red-500 focus:ring-2 focus:ring-red-500"
+                                : "border-[#2d2174] focus:ring-2 focus:ring-[#2d2174]"
                                 }`}
                             required
                         />
@@ -189,8 +186,8 @@ export const SignupPage = () => {
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             className={`w-[300px] border-2 rounded-lg px-3 py-2.5 outline-none ${errors.confirmPassword
-                                    ? "border-red-500 focus:ring-2 focus:ring-red-500"
-                                    : "border-[#2d2174] focus:ring-2 focus:ring-[#2d2174]"
+                                ? "border-red-500 focus:ring-2 focus:ring-red-500"
+                                : "border-[#2d2174] focus:ring-2 focus:ring-[#2d2174]"
                                 }`}
                             required
                         />

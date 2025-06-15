@@ -1,3 +1,4 @@
+import axios from "axios";
 import type { SignupType } from "../types/SignupType";
 
 interface SignupResponse {
@@ -8,14 +9,26 @@ interface SignupResponse {
 }
 
 export const ApiSignup = async (data: SignupType): Promise<SignupResponse> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        success: true,
-        message: "Usuário cadastrado com sucesso!",
-        user: data,
-        token: "token.jwt.simulado.1234567890",
-      });
-    }, 1000);
-  });
+  try {
+    const response = await axios.post("http://localhost:3000/auth/signup", {
+      firstname: data.firstname,
+      username: data.username,
+      email: data.email,
+      password: data.password,
+    });
+
+    const { access_token } = response.data;
+
+    return {
+      success: true,
+      message: "Usuário cadastrado com sucesso!",
+      token: access_token,
+      user: data,
+    };
+  } catch (error: any) {
+    return {
+      success: false,
+      message: error.response?.data?.message || "Erro ao realizar cadastro",
+    };
+  }
 };
