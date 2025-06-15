@@ -10,7 +10,7 @@ function App() {
       <Route path='/login' element={<Login />} />,
       <Route path="/home" element={<HomePage />} />,
       <Route path="/postagem" element={<PostagemPage/>}/>,
-      <Route path='/comentario' element={<CommentPage/>}/>
+      <Route path='/comentarios/:id' element={<CommentPage/>}/>
     </Routes>
   )
 }
