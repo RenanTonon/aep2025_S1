@@ -12,7 +12,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/postagem" element={<PostagemPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/comment" element={<CommentPage />} />
+        <Route path="/comment/:id" element={<CommentPage />} />
         
       </Routes>
 

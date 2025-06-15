@@ -27,7 +27,8 @@ export const HomePage = () => {
       <div className="flex flex-col justify-center items-center mt-[50px] gap-[50px]">
         {apiPostagens.map((post, index) => (
           <PostMansager
-            key={index}
+            key={post.idPostagem}  
+            idPostagem={post.idPostagem}  
             fotoUsuario={post.fotoUsuario}
             nomeUsuario={post.nomeUsuario}
             tituloPostagem={post.tituloPostagem}

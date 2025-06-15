@@ -10,8 +10,8 @@ export const ApiPosts = async (): Promise<PostType[]> => {
     });
     const backendData = await response.json();
 
-    const mappedPosts: PostType[] = backendData.map((post: any, index: number) => ({
-      index: String(index + 1),
+    const mappedPosts: PostType[] = backendData.map((post: any) => ({
+      idPostagem: post.id,       
       nomeUsuario: "Usuário 123", 
       tituloPostagem: post.title,
       localizacaoPostagem: post.adress, 
@@ -36,3 +36,4 @@ export const ApiPosts = async (): Promise<PostType[]> => {
     return [];
   }
 };
+
