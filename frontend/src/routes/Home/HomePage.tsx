@@ -28,6 +28,7 @@ export const HomePage = () => {
         {apiPostagens.map((post, index) => (
           <PostMansager
             key={index}
+            idPostagem={post.idPostagem}
             fotoUsuario={post.fotoUsuario}
             nomeUsuario={post.nomeUsuario}
             tituloPostagem={post.tituloPostagem}

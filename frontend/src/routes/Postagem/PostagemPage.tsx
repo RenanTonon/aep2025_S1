@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { HeaderMenu } from "../../components/PageLoyout/components/HeaderMenu";
 import { ApiPostar } from "../../apis/ApiPostar";
+import NavigateButton from "../../components/buttons/NavigateButton";
 
 export const PostagemPage = () => {
   const [titulo, setTitulo] = useState("");
@@ -86,6 +87,9 @@ export const PostagemPage = () => {
                 Enviar
             </button>
             </form>
+            <div className="fixed bottom-6 right-6 z-50">
+                <NavigateButton conteudo="HOME" path="/home" />
+            </div>
         </div>
         
         {modalOpen && (

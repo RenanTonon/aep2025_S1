@@ -6,7 +6,7 @@ export const ApiPosts = async (): Promise<PostType[]> => {
 
     const api = [
       {
-        index: "1",
+        idPostagem: "1",
         nomeUsuario: "Willian Kakihata",
         tituloPostagem: "Banana no Mercado teve um desconto alto...",
         localizacaoPostagem: "Avenida bananas 1750",
@@ -23,7 +23,7 @@ export const ApiPosts = async (): Promise<PostType[]> => {
         ]
       },
       {
-        index:"2",
+        idPostagem:"2",
         nomeUsuario: "Maria Silva",
         tituloPostagem: "Promoção de morangos frescos!",
         localizacaoPostagem: "Rua das Frutas, 900",
