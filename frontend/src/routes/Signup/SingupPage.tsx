@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { SignupType } from "../../types/SignupType";
-import { ApiSignup } from "../../apis/apiSignUpAndLogin";
+import { ApiSignup } from "../../apis/apiSignUp";
 
 export const SignupPage = () => {
     const [firstName, setFirstName] = useState("");
@@ -210,7 +210,7 @@ export const SignupPage = () => {
                 </form>
             </div>
 
-            <div className="text-black flex flex-col items-center justify-center p-8">
+            <div className="text-black flex flex-col items-center justify-center p-20">
                 <div className="text-center">
                     <h1 className="text-4xl font-bold mb-4" style={{ color: "#2d2174" }}>
                         CITY V<span className="text-yellow-300">🎙</span>ICE TALK
