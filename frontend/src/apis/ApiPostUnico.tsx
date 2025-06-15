@@ -1,8 +1,8 @@
-import type { PostType } from "../types/PostType";
+import type { PostType } from "../types/PostType"
 import FotoPerfil from "../assets/imagens/fotoPefilTeste.jpg"
 import BananaFoto from "../assets/imagens/banana teste.jpg"
 
-export const ApiPosts = async (): Promise<PostType[]> => {
+export const ApiPosts = async (): Promise<PostType[] | null> => {
 
     const api = [
       {
@@ -40,5 +40,7 @@ export const ApiPosts = async (): Promise<PostType[]> => {
         ]
       },]
 
-    return await api
+
+
+    return apiEncontrada
 }
