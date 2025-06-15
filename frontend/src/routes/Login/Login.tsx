@@ -19,7 +19,7 @@ export const Login = () => {
 
           <div className="flex justify-center gap-[10px]">
             <NavigateButton path="/home" conteudo="ENTRAR"/>
-            <NavigateButton path="/home" conteudo="CADASTRAR"/>
+            <NavigateButton path="/signup" conteudo="CADASTRAR"/>
           </div>
         </form>
       </div>
